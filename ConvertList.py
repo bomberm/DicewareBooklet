@@ -13,7 +13,7 @@ def formating(matrix, output):
 		newLine = newLine.rstrip()		
 		newLine += "\\\\\n"
 		output.write(newLine)
-	output.write("\t\\end{tabular}\n \\end{table}\n\n\n")
+	output.write("\t\\end{tabular}\n \\end{table}\n\\clearpage\n\n")
 	sys.stdout.flush()
 		
 
