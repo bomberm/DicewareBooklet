@@ -1,7 +1,9 @@
 import sys
 #print formatting
 def formating(matrix, output):
-	output.write("\\begin{table}\n\t\\centering\n\t\\section*{***** - *****}\n\t\\begin{tabular}{l l l l}\n")
+	firstsection = matrix[0][0][:3]
+	lastsection = matrix[26][3][:3]
+	output.write("\\begin{table}\n\t\\centering\n\t\\section*{"+firstsection+"** - "+lastsection+"**}\n\t\\begin{tabular}{l l l l}\n")
 	sys.stdout.flush()	
 	newLine = ""
 	for row in matrix:
@@ -21,10 +23,10 @@ def formating(matrix, output):
 w, h = 4, 27;
 Matrix = [["" for x in range(w)] for y in range(h)] 
 
-o = open("LongOutput", 'w+')
+o = open("ModifiedOutput", 'w+')
 l = []
 
-with open("LongWordlist.csv", 'r') as f:
+with open("ModifiedWordlist.csv", 'r') as f:
 	for line in f:	
 		l.append(line)
 
@@ -33,6 +35,7 @@ while 1:
 	for i in range(0,4):
 		line = ""
 		for j in range(0, 27):		
+			if not l: break			
 			line = l.pop(0) #Get front of list
 			line = line.replace(",", " ")
 			Matrix[j][i] = line
